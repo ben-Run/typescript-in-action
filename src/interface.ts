@@ -61,3 +61,27 @@ let person:IPerson1 = {
 }
 
 // 接口： 1、抽象化 2、约束对象类型
+
+// 索引签名：支持两种索引签名 字符串、数字，可以同时使用两种类型的索引，但是数字索引的返回值必须是字符串索引返回值类型的子类型。 
+// 这是因为当使用 number来索引时，JavaScript会将它转换成string然后再去索引对象。 
+// 用number的索引匹配ISomeArray 会得到一个string
+// 用string的索引匹配ISomeArray 会得到一个string
+
+interface ISomeArray {
+  [index:number]:string;
+  [index:string]:string;
+}
+
+// 比如我们想要一个包含约束的属性，但是还可以包含其他任意属性
+interface IAnimalDemo {
+  name:string;
+  age:number;
+  [index:string]:any
+}
+
+let animalDemo: IAnimalDemo = {
+  name: 'joel',
+  age: 27,
+  color: 'dsd'  // 报错，加上索引签名后不报错
+}
+
