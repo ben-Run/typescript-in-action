@@ -42,6 +42,7 @@ function exceptionDemo ():never {
 let arr: string[] = ['abc','abc']
 let arr1: Array<string> = ['abc', 'abc'] // 另外一种声明方式--泛型数组
 
+// 元组
 let arr3: [number, string, boolean] = [12, 'abc', true] // 固定数量类型的数组
 
 // 数值枚举
