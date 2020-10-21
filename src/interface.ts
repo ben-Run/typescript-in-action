@@ -3,6 +3,17 @@ interface IHuman {
   eat():void;
 }
 
+// 接口定义属性、方法等约束
+interface SearchFunc {    
+  (source: string, subString: string): boolean;
+}
+let mySearch: SearchFunc;
+mySearch = function(source: string, subString: string) {   
+  return source.search(subString) !== -1;
+} 
+
+
+
 class Asian implements IHuman {
   name:string;
   age:number;
