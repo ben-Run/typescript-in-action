@@ -22,13 +22,28 @@ function run():void {
   console.log('void')
 }
 
-// unknown 类型的可以任意变量，
+// any 任意类型，不做类型检查，any类型本质上是类型系统的一个逃逸舱，是一个顶级类型
+
+/*
+
+unknown 类型可以是任意变量，是另外一个顶级类型，但是比any严格，会执行类型检查，除非我们使用类型断言
+TypeScript 不允许我们对类型为 unknown 的值执行任意操作。相反，我们必须首先执行某种类型检查以缩小我们正在使用的值的类型范围
+unknown 类型只能被赋值给 any 类型和 unknown 类型本身。
+直观的说，这是有道理的：只有能够保存任意类型值的容器才能保存 unknown 类型的值。毕竟我们不知道变量 value 中存储了什么类型的值。
+
+*/
 
 let unknowTitle: unknown;
 unknowTitle = 'abc'
 unknowTitle = 100
 unknowTitle = true
 unknowTitle = undefined
+
+unknowTitle.tostring() // 报错
+(unknowTitle as string).tostring() // 加了断言才不报错---》 指定类型
+
+let anyTitle:any = null;
+anyTitle.tostring() // 没有报错
 
 let unknowTitle1: string = 'abc'
 // unknowTitle1 = unknowTitle // error, 把unknown的变量赋值给其他类型只能是any 以及unknown本身

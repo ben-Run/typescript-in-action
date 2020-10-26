@@ -92,3 +92,4 @@ let dif3:Diff<'c', 'a'|'e'> // c
 // let dif6:NonNullable<'a'>  // 从T中剔除null和undefined。
 // let dif7:ReturnType<T>   // 获取函数返回值类型。
 // let dif8:InstanceType<T>  // 获取构造函数类型的实例类型。
+
